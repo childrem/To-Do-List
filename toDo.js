@@ -45,6 +45,11 @@ app.post('/', function(req,res){
       return;
    }
    
+   if (req.body['Add Item']){    // user came in from the new task form
+      req.session.toDo.push({"name":req.body.name, "id":req.session.curId});
+      req.session.curId++;
+   }
+   
    context.name = req.session.name;
    context.toDoNum = req.session.toDo.length;
    context.toDo = req.session.toDo;
