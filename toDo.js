@@ -50,6 +50,12 @@ app.post('/', function(req,res){
       req.session.curId++;
    }
    
+   if (req.body['Item Complete']){  // user came in from the mark complete button
+      req.session.toDo = req.session.toDo.filter(function(e){
+         return e.id != req.body.id;
+      })
+   }
+   
    context.name = req.session.name;
    context.toDoNum = req.session.toDo.length;
    context.toDo = req.session.toDo;
