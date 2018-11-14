@@ -33,7 +33,20 @@ app.post('/', function(req,res){
    if (req.body['newUser']){
       // user came from the name entry page, so need to set up the new session object
       req.session.name = req.body.name;
+      req.session.toDo = [];
+      req.session.curId = 0;
    }
+   
+   if (!req.session.name){
+      res.render('nameEntry', context);
+      return;
+   }
+   
+   context.name = req.session.name;
+   context.toDoNum = req.session.toDo.length;
+   
+   res.render('toDo', context);
+   
 });
 
 app.use(function(req,res){
