@@ -46,7 +46,7 @@ app.post('/', function(req,res){
    }
    
    if (req.body['Add Item']){    // user came in from the new task form
-      req.session.toDo.push({"name":req.body.name, "id":req.session.curId});
+      req.session.toDo.push({"name":req.body.newListItem, "id":req.session.curId});
       req.session.curId++;
    }
    
