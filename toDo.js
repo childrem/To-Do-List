@@ -27,6 +27,15 @@ app.get('/', function(req,res){
 });
 
 
+app.post('/', function(req,res){
+   var context = {};
+   
+   if (req.body['newUser']){
+      // user came from the name entry page, so need to set up the new session object
+      req.session.name = req.body.name;
+   }
+});
+
 app.use(function(req,res){
    res.status(404);
    res.render('404');
