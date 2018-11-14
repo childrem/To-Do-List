@@ -21,6 +21,9 @@ app.get('/', function(req,res){
    
    // if the session does exist, we can process it
    context.name = req.session.name;
+   context.toDo = req.session.toDo;
+   context.toDoNum = req.session.toDo.length || 0;
+   res.render('toDo', context);
 });
 
 
