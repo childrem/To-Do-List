@@ -12,6 +12,11 @@ app.set('view engine', 'handlebars');
 app.set('port', 6897);
 
 
+app.get('/', function(req,res){
+   var context = {};
+   if (!req.session.name) {      //if the session object does not exist yet
+      res.render('
+});
 
 
 app.use(function(req,res){
