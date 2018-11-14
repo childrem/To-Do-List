@@ -15,7 +15,12 @@ app.set('port', 6897);
 app.get('/', function(req,res){
    var context = {};
    if (!req.session.name) {      //if the session object does not exist yet
-      res.render('
+      res.render('nameEntry', context);
+      return;
+   }
+   
+   // if the session does exist, we can process it
+   context.name = req.session.name;
 });
 
 
