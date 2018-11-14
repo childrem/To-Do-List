@@ -23,7 +23,7 @@ app.get('/', function(req,res){
    context.name = req.session.name;
    context.toDo = req.session.toDo;
    context.toDoNum = req.session.toDo.length || 0;
-   res.render('toDo', context);
+   res.render('toDo',context);
 });
 
 
@@ -38,14 +38,15 @@ app.post('/', function(req,res){
    }
    
    if (!req.session.name){
-      res.render('nameEntry', context);
+      res.render('nameEntry',context);
       return;
    }
    
    context.name = req.session.name;
    context.toDoNum = req.session.toDo.length;
+   context.toDo = req.session.toDo;
    
-   res.render('toDo', context);
+   res.render('toDo',context);
    
 });
 
