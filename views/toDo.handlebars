@@ -12,8 +12,10 @@
   {{#each toDo}}
   <li>
     <h3>{{this.name}}</h3>
-    <input type="hidden" name="id" value={{this.id}}>
-    <input type="submit" name="Item Complete" value="Mark Task As Done">
+    <form method="post">
+      <input type="hidden" name="id" value={{this.id}}>
+      <input type="submit" name="Item Complete" value="Mark Task As Done">
+    </form>
   </li>
   {{/each}}
 </ul>
